@@ -1,1 +1,28 @@
-Vir2vec is a pan-viral genomic language model (422M parameters) obtained by continual pretraining of Mistral-DNA on a curated corpus of 565,747 complete viral genomes spanning 295 species, producing reusable 4,096-dim genome-level embeddings. The paper also introduces vGUE, a unified benchmark to evaluate viral “genome understanding” across tasks from virus vs non-virus and DNA vs RNA to host prediction, HIV-1 vs HIV-2, SARS-CoV-2 lineage / influenza subtype typing, and HIV tropism, showing strong performance—especially on genome-wide and host-related tasks—using frozen embeddings plus shallow classifiers under nested CV.
+Vir2vec is a pan-viral genomic language model (422M parameters) obtained by continual pretraining of Mistral-DNA on a curated corpus of 565,747 complete viral genomes spanning 295 species, producing reusable 4,096-dim genome-level embeddings. 
+The paper also introduces vGUE, a unified benchmark to evaluate viral “genome understanding” across tasks from virus vs non-virus and DNA vs RNA to host prediction, HIV-1 vs HIV-2, SARS-CoV-2 lineage / influenza subtype typing, 
+and HIV tropism, showing strong performance—especially on genome-wide and host-related tasks—using frozen embeddings plus shallow classifiers under nested CV.
+
+This repository contains the code and supporting files used to:
+1) train a viral sequence model  
+2) generate embeddings from viral sequences/genomes  
+3) track the accession numbers used during model training  
+
+### `codes/training/`
+This folder contains all scripts required for **model training**. 
+
+<code>accelerate launch Minstral_Embedding_422M.py --config_file= default_config.yaml --num_process=4 --main_process_port 0</code>
+<code>accelerate launch Minstral_Embedding_138M.py --config_file=/blue/salemi/share/varcovid/ViralLingo/Embedding/ModernBERT/accelerate/default_config.yaml --num_process=4</code>
+<code>accelerate launch Minstral_Embedding_17M.py --config_file=/blue/salemi/share/varcovid/ViralLingo/Embedding/ModernBERT/accelerate/default_config.yaml --num_process=4</code>
+
+### `codes/embedding/`
+This folder contains scripts used to **compute embeddings** from sequences
+
+### `accession_txt/`
+This folder contains `.txt` files with the **accession numbers** used to train the model.
+
+Examples:
+- `train_accessions.txt`
+- `val_accessions.txt`
+- `test_accessions.txt`
+
+
