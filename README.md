@@ -23,14 +23,14 @@ Training can be launched via `accelerate`:
 accelerate launch Minstral_Embedding_422M.py --config_file=default_config.yaml --num_process=4 --main_process_port 0
 accelerate launch Minstral_Embedding_138M.py --config_file=default_config.yaml --num_process=4
 accelerate launch Minstral_Embedding_17M.py  --config_file=default_config.yaml --num_process=4
-,,,
+```
 
 ### 'embedding'
 Scripts to compute embeddings from sequences and to simulate example downstream use-cases.
 Example:
 ```bash
 python Local_Max.py
-,,,
+```
 
 ### accession_txt/
 .txt files containing the accession numbers used to assemble the dataset splits for training and evaluation.
